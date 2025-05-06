@@ -16,42 +16,26 @@ public class Room {
         this.dirty = dirty;
     }
 
-    // getters and setters
+    // getters
     public int getNumberOfBeds() {
         return numberOfBeds;
-    }
-
-    public void setNumberOfBeds(int numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public boolean isOccupied() {
         return occupied;
-    }
-
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
     }
 
     public boolean isDirty() {
         return dirty;
     }
 
-    public void setDirty(boolean dirty) {
-        this.dirty = dirty;
-    }
-
     // derived getter
     public boolean isAvailable() {
-        // if not occupied and not dirty
-        return (!occupied && !dirty);
+        // if not occupied and not dirty then room is available
+        return !this.occupied && !this.dirty;
     }
 }

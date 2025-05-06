@@ -51,8 +51,8 @@ public class Reservation {
 
     public double getReservationTotal() {
         // if it's the weekend then gets 10% increase
-        if (isWeekend){
-            return getNumberOfNights() * (getPrice() * 1.10);
+        if (this.isWeekend){
+            return Math.round(getNumberOfNights() * (getPrice() * 1.10));
         }
         // if it's weekdays no increase
         return getNumberOfNights() * getPrice();
