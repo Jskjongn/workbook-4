@@ -8,6 +8,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private double punchInTime;
 
     // constructor
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
@@ -62,21 +63,34 @@ public class Employee {
     // derived getters
     public double getRegularHours() {
         // if hours worked is less than or equal to 40 it returns hours worked
-        if (hoursWorked <= 40) {
-            return hoursWorked;
+        if (this.hoursWorked <= 40) {
+            return this.hoursWorked;
         }
         return 40;
     }
 
     public double getOvertimeHours() {
         // if hours worked is greater than 40 it returns hours worked - 40
-        if (hoursWorked > 40) {
-            return hoursWorked - 40;
+        if (this.hoursWorked > 40) {
+            return this.hoursWorked - 40;
         }
         return 0;
     }
 
     public double getTotalPay() {
-        return getRegularHours() * payRate + getOvertimeHours() * 1.5 * payRate;
+        // adds regular time to pay rate and if there's overtime it gets added to that
+        return getRegularHours() * this.payRate + getOvertimeHours() * 1.5 * this.payRate;
+    }
+
+    public void punchIn(double time) {
+        // takes in the punch in time
+        this.punchInTime = time;
+    }
+
+    public void punchOut(double time) {
+        // takes punch out time by subtracting the punch out time by the punch in time
+        double punchOutTime = time - this.punchInTime;
+        // adds the hours to hours worked
+        this.hoursWorked += punchOutTime;
     }
 }

@@ -33,9 +33,26 @@ public class Room {
         return dirty;
     }
 
-    // derived getter
+    // derived getters
     public boolean isAvailable() {
         // if not occupied and not dirty then room is available
         return !this.occupied && !this.dirty;
+    }
+
+    public void checkIn() {
+        // once checked in, room is occupied and is dirty
+        this.occupied = true;
+        this.dirty = true;
+    }
+
+    public void checkOut() {
+        // once checked out, room is not occupied but is dirty and must be cleaned
+        this.occupied = false;
+        this.dirty = true;
+    }
+
+    public void cleanRoom() {
+        // cleans room now it's not dirty
+        this.dirty = false;
     }
 }
