@@ -39,6 +39,7 @@ public class Room {
         return !this.occupied && !this.dirty;
     }
 
+    // other methods
     public void checkIn() {
         // once checked in, room is occupied and is dirty
         this.occupied = true;
@@ -48,7 +49,7 @@ public class Room {
     public void checkOut() {
         // once checked out, room is not occupied but is dirty and must be cleaned
         this.occupied = false;
-        this.dirty = true;
+        this.cleanRoom();
     }
 
     public void cleanRoom() {

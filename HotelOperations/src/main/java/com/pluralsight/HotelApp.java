@@ -66,6 +66,39 @@ public class HotelApp {
         // employee now has hours worked so has a total pay
         System.out.println("Employee four's total pay is: $" + employee4.getTotalPay());
 
+
+        // testing hotel class
+        Hotel hotel1 = new Hotel("Ocean View", 10, 50);
+
+        // displays availability
+        System.out.println("Hotel: " + hotel1.getName());
+        System.out.println("Available Suites: " + hotel1.getAvailableSuites());
+        System.out.println("Available Basic Rooms: " + hotel1.getAvailableRooms());
+
+        // try booking 3 suites
+        boolean bookedSuites = hotel1.bookRoom(3, true);
+        System.out.println("Booked 3 suites: " + bookedSuites);
+        System.out.println("Available Suites after booking: " + hotel1.getAvailableSuites());
+
+        // try booking 5 basic rooms
+        boolean bookedRooms = hotel1.bookRoom(5, false);
+        System.out.println("Booked 5 basic rooms: " + bookedRooms);
+        System.out.println("Available Basic Rooms after booking: " + hotel1.getAvailableRooms());
+
+        // try overbooking suites
+        boolean overbook = hotel1.bookRoom(20, true);
+        System.out.println("Tried booking 20 suites: " + overbook);
+        System.out.println("Available Suites after failed booking: " + hotel1.getAvailableSuites());
+
+        // try booking 0 suites
+        boolean bookedNoSuites = hotel1.bookRoom(0, true);
+        System.out.println("Booked 0 suites: " + bookedNoSuites);
+        System.out.println("Available Suites after booking: " + hotel1.getAvailableSuites());
+
+        // try booking 0 rooms
+        boolean bookedNoRooms = hotel1.bookRoom(0, false);
+        System.out.println("Booked 0 suites: " + bookedNoRooms);
+        System.out.println("Available Basic Rooms after booking: " + hotel1.getAvailableRooms());
     }
 
 }
